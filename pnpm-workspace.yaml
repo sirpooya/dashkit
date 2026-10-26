@@ -1,0 +1,19 @@
+allowBuilds:
+  esbuild: true
+
+# These packages import React types without declaring @types/react as a peer.
+# Under the global virtual store they can't reach the project's copy, so their
+# React types silently become `any`. Declaring the peer links the real types in.
+packageExtensions:
+  usehooks-ts:
+    peerDependencies:
+      "@types/react": "*"
+  "@storybook/blocks":
+    peerDependencies:
+      "@types/react": "*"
+  "@storybook/react":
+    peerDependencies:
+      "@types/react": "*"
+  "@storybook/components":
+    peerDependencies:
+      "@types/react": "*"
